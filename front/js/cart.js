@@ -26,6 +26,7 @@ const fetchCanap = () => fetch("http://localhost:3000/api/products").then((repon
         if (arrayProduct == 0) {
             const createEmptyCart = `<p>Votre panier est vide</p>`;
             emptyCart.innerHTML = createEmptyCart;
+            document.querySelector('.cart__order').style.display = 'none';  
         } else {
             // si le panir est plein
             let cardBasket = "";
@@ -205,7 +206,7 @@ const fetchCanap = () => fetch("http://localhost:3000/api/products").then((repon
         }
 
                 //-------------------- Mise en place du formulaire -----------------------
-
+      
                         
         // mise en place du bouton d'envoie du formulaire
         orderButton.addEventListener("click", (e) => submitForm(e));
@@ -240,7 +241,7 @@ const fetchCanap = () => fetch("http://localhost:3000/api/products").then((repon
             if (checkAdressCity( "address", "addressErrorMsg", "Votre adresse doit être valide")) {
                 return;
             }
-            if ( checkAdressCity( "city", "cityErrorMsg", "Votre ville doit être valide")) {
+            if (checkAdressCity( "city", "cityErrorMsg", "Votre ville doit être valide")) {
                 return;
             }
             if (checkEmail()) {
